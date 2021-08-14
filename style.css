@@ -1,0 +1,17 @@
+/* !подключим щрифты */
+@font-face {
+    font-family: "Oswald", sans-serif;
+    src: url("./fonts/oswald-bold.woff2") format("woff2"),
+        url("./fonts/oswald-bold.woff") format("woff");
+}
+/* !переменные */
+:root {
+    /* основные параметры сайта */
+    --сontainer-width: 1110px;
+}
+/*!styles*/
+body {
+    font-family: "Oswald", sans-serif;
+    font-weight: bold;
+    background-color: red;
+}

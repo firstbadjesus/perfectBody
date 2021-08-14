@@ -1,0 +1,891 @@
+/* TODO :: TEMP SOLUTION */
+.container {
+    overflow: hidden;
+    
+}
+
+* {
+    outline: 1px solid red;
+}
+
+/* !подключим щрифты */
+@font-face {
+    font-family: "Oswald";
+    src: url("../fonts/oswald-regular.woff2") format("woff2"),
+        url("../fonts/oswald-regular.woff") format("woff");
+}
+@font-face {
+    font-family: "Oswald";
+    src: url("../fonts/oswald-variablefont_wght-webfont.woff2") format("woff2"),
+        url("../fonts/oswald-variablefont_wght-webfont.woff") format("woff");
+}
+@font-face {
+    font-family: "Gotham Pro";
+    src: url("../fonts/gothampro-webfont-regular.woff2") format("woff2"),
+        url("../fonts/gothampro-webfont-regular.woff") format("woff");
+    font-weight: 400;
+}
+@font-face {
+    font-family: "Gotham Pro";
+    src: url("../fonts/gothampro-bold-webfont.woff2") format("woff2"),
+        url("../fonts/gothampro-bold-webfont.woff") format("woff");
+    font-weight: 700;
+}
+@font-face {
+    font-family: "Gotham Pro";
+    src: url("../fonts/gothampro-italic.woff2") format("woff2"),
+        url("../fonts/gothampro-italic.woff") format("woff");
+    font-weight: 400;
+    font-style: italic;
+}
+/* !переменные */
+:root {
+    /* основные параметры сайта */
+    /*ширина контейнера для цетровки*/
+    --сontainer-width: 1110px;
+    /* шрифт для жирных заголовков */
+    --heading-font: "Oswald", sans-serif;
+    /* основной щрифт сайта */
+    --basic-font: "Gotham Pro", sans-serif;
+    /* определим основные цвета сайта */
+    --dark-purple: #0a0d35;
+    --light-purple: #25295c;
+    --basic-green: #92ca18;
+    --transparent-color: transparent;
+    /* определим основные цвета шрифтов */
+    --white-text: #ffffff;
+    --purple-text: #4f5388;
+    --green-text: #92ca18;
+    --plum-text: #626589;
+
+    /* цвета текста при наведении */
+    --green-text-hover: #638813;
+}
+
+/* !настраиваем общте стили страницы */
+* {
+    box-sizing: border-box;
+}
+html {
+    width: 100%;
+    margin: 0;
+    padding: 0;
+}
+h1,
+h2,
+h3,
+p {
+    margin: 0;
+    padding: 0;
+}
+
+h2 {
+    font-family: "Oswald";
+    font-weight: bold;
+    font-size: 56px;
+    line-height: 64px;
+    text-transform: uppercase;
+    text-align: center;
+}
+li {
+    list-style: none;
+}
+
+a {
+    text-decoration: none;
+    color: var(--white-text)
+}
+
+.page {
+    width: 100%;
+    min-height: 100%;
+    margin: 0;
+    padding: 0;
+    font-family: var(--basic-font);
+    font-size: 12px;
+    background-color: var(--dark-purple);
+    color: var(--white-text);
+}
+
+.button {
+    height: 64px;
+    padding: 0;
+    display: inline-block;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-transform: uppercase;
+    text-decoration: none;
+    font-size: 16px;
+    border: none;
+    border-radius: 30px;
+    background-color: var(--basic-green);
+    color: var(--white-text);
+    transition: all 0.3s;
+    text-align: center;
+}
+
+.button:hover {
+    background-color: var(--green-text-hover);
+    color: var(--white-text);
+}
+.button-transparent {
+    border: 1px solid #9e9e9e;
+    background-color: var(--transparent-color);
+}
+.button-transparent:hover {
+    border-color: var(--white-text);
+    background-color: var(--transparent-color);
+}
+.container {
+    max-width: var(--сontainer-width);
+    /*outline: 1px solid #fff;*/
+}
+/* основные стили */
+/* header начинаем тут */
+.header {
+    padding: 48px 0 90px 0;
+    font-family: var(--heading-font), serif;
+    background: url("../img/header-bg.jpg") no-repeat;
+    background-size: 100%;
+}
+.header__top {
+    align-items: center;
+}
+.header__brand a {
+    font-size: 16px;
+    color: var(--green-text);
+    text-decoration: none;
+    transition: hover, 0.3s;
+}
+.header__brand a:hover {
+    color: var(--green-text-hover);
+}
+.header__menu {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+}
+.header__menu button {
+    width: 96px;
+    height: 40px;
+}
+.header__intro {
+    padding: 78px 0 48px 0;
+}
+.header__intro h2 {
+    font-size: 56px;
+    font-weight: bold;
+    line-break: 64px;
+}
+.header__intro p {
+    margin-top: 23px;
+    font-family: "Gotham Pro", sans-serif;
+    font-style: italic;
+    font-size: 16px;
+    line-height: 24px;
+}
+.header__links {
+    align-items: center;
+}
+.header__purchase {
+    margin-right: 20px;
+}
+.header__purchase {
+    width: 199px;
+}
+.header__gift {
+    width: 317px;
+}
+.header__warranty {
+    display: flex;
+    justify-content: flex-end;
+}
+.header__warranty img {
+    margin-left: auto;
+    width: 154px;
+}
+.header__buttons {
+    display: flex;
+}
+@media (max-width: 575px) {
+    .header__purchase {
+        margin: 0 0 16px 0;
+    }
+    .header__buttons {
+        flex-wrap: wrap;
+    }
+    .header__buttons a {
+        width: 100%;
+    }
+}
+@media (max-width: 768px) {
+    .header {
+        padding: 0 0 32px 0;
+        background: none;
+    }
+    .header__top {
+        padding: 12px 0 282px 0;
+        background-image: url("../svg/Guarantee\ section.svg"),
+            url("../img/header-bg.jpg");
+        background-repeat: no-repeat, no-repeat;
+        background-size: 30%, cover;
+        background-position: right 30px bottom 50px, right 30% center;
+    }
+    .header__intro {
+        padding: 0;
+    }
+    .header__intro h2 {
+        font-size: 32px;
+        line-break: 40px;
+        text-align: center;
+    }
+    .header__intro p {
+        margin: 23px 0 23px 0;
+        font-size: 14px;
+        line-height: 18px;
+        text-align: center;
+    }
+    .header__gift a,
+    .header__purchase a {
+        width: 100%;
+        margin: 0 auto;
+    }
+
+    .header__warranty {
+        display: none;
+    }
+}
+/* !section media начинаеться тут */
+.media {
+    padding: 43px 0 64px 0;
+    background: var(--light-purple);
+}
+.media__heading {
+    font-family: "Oswald", sans-serif;
+    text-transform: uppercase;
+}
+.media__text {
+    font-family: "Gotham Pro";
+    color: var(--purple-text);
+}
+.media__title {
+    font-size: 24px;
+    line-height: 40px;
+}
+.media__wrapper {
+    align-items: center;
+    margin-bottom: 20px;
+}
+.media__brands {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+.media__brand {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 20px;
+}
+@media (max-width: 768px) {
+    .media {
+        padding: 25px 0 25px 0;
+    }
+    .media__heading {
+        text-align: center;
+        margin-bottom: 10px;
+    }
+    .media__brand {
+        flex-basis: 25%;
+    }
+    .media__brands {
+    }
+}
+
+/* !Стартуем секцию с отзвами */
+
+.feedbacks {
+    padding: 97px 0 0 0;
+}
+.feedbacks__title {
+    margin-bottom: 30px;
+}
+.feedbacks__title h2 {
+    font-family: "Oswald";
+    font-weight: bold;
+    font-size: 56px;
+    line-height: 64px;
+    text-transform: uppercase;
+    text-align: center;
+}
+.feedbacks__wrapper {
+    padding: 0 0 50px 0;
+}
+.feedbacks__item {
+    margin-bottom: 50px;
+    display: flex;
+    text-align: center;
+}
+.feedback {
+    display: flex;
+}
+.feedback_bottom {
+    flex-direction: column;
+}
+.feedback_bottom .feedback__picture:before {
+    display: none;
+}
+.feedback_bottom .feedback__author {
+    margin-top: 30px;
+}
+.feedback__picture {
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+    position: relative;
+    padding: 30px 0 50px 0;
+}
+.feedback__picture:before {
+    position: absolute;
+    content: "";
+    width: 160px;
+    height: 224px;
+    background: var(--light-purple);
+    bottom: 50px;
+    left: 50%;
+    z-index: -1;
+    transform: translateX(-80px);
+}
+.feedback__picture,
+.feedback__info {
+    flex-basis: 50%;
+}
+.feedback__info {
+    display: flex;
+    flex-direction: column;
+}
+.feedback__quotes {
+    margin-bottom: 25px;
+}
+.feedback__text {
+    font-size: 16px;
+    line-height: 24px;
+    margin-bottom: 40px;
+}
+.feedback__author {
+    margin-top: auto;
+}
+.feedback__author span {
+    font-family: "Oswald", sans-serif;
+    font-size: 16px;
+    font-weight: 700;
+    text-transform: uppercase;
+}
+@media (max-width: 991px) {
+    .feedback {
+        flex-direction: column;
+    }
+}
+@media (max-width: 576px) {
+    .feedbacks {
+        padding: 46px 0 0 0;
+    }
+    .feedbacks__wrapper {
+        padding-bottom: 0;
+    }
+    .feedbacks__title h2 {
+        font-size: 32px;
+        line-height: 40px;
+    }
+    .feedback__quotes {
+        margin-bottom: 10px;
+        text-align: center;
+    }
+    .feedback__picture {
+        padding: 20px 0 20px 0;
+    }
+    .feedback__author {
+        text-align: center;
+    }
+    .feedback__text {
+        margin-bottom: 10px;
+    }
+}
+/* section testimonial starts here */
+.testimonial {
+    font-family: "Oswald", sans-serif;
+    font-weight: 700;
+    background: url("../img/Testimonial-bg.png") no-repeat;
+    background-size: cover;
+    background-position: bottom center;
+}
+.testimonial__wrapper {
+}
+.testimonial__content {
+    padding-top: 85px;
+    padding-bottom: 85px;
+}
+.testimonial__title {
+    display: inline-block;
+    font-family: "Oswald";
+    font-size: 56px;
+    line-height: 64px;
+    font-weight: 700;
+    margin-bottom: 20px;
+}
+.testimonial__text {
+    font-size: 16px;
+    line-height: 24px;
+    margin-bottom: 20px;
+    font-family: "Gotham Pro", sans-serif;
+    font-weight: 400;
+}
+.testimonial__figure {
+    padding-top: 80px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    background: url("../img/Testimonial-profile.png") no-repeat;
+    background-position: bottom center;
+}
+.testimonial__name {
+    color: var(--green-text);
+    font-size: 16px;
+    text-transform: uppercase;
+}
+.testimonial__status {
+    display: inline-block;
+    text-transform: uppercase;
+    color: var(--plum-text);
+    text-align: right;
+}
+@media (max-width: 768px) {
+    .testimonial__content {
+        padding-top: 2px;
+        padding-bottom: 25px;
+    }
+    .testimonial__title {
+        display: inline-block;
+        font-size: 32px;
+        line-height: 40px;
+        text-align: center;
+    }
+    .testimonial__title br {
+        display: none;
+    }
+    .testimonial__figure {
+        min-height: 500px;
+        padding-top: 20px;
+        padding-bottom: 0;
+        order: -1;
+        background-size: contain;
+        justify-content: flex-end;
+    }
+    .testimonial__name {
+        padding-top: 20px;
+    }
+    .testimonial__status {
+        padding-bottom: 20px;
+    }
+    .testimonial__name,
+    .testimonial__status {
+        width: 100%;
+        background-color: var(--dark-purple);
+        text-align: center;
+    }
+}
+
+/* !Погнали дальше секция Statistics */
+.statistics {
+    padding: 61px 0;
+    font-family: "Oswald";
+    font-weight: 700;
+    color: var(--plum-text);
+    text-transform: uppercase;
+}
+.statistics__numbers {
+    display: flex;
+    align-items: center;
+    font-size: 24px;
+    line-height: 32px;
+}
+.statistics__numbers p {
+    margin-right: 85px;
+}
+.statistics__numbers span {
+    color: var(--green-text);
+    font-size: 24px;
+    font-size: 65px;
+    line-height: 32px;
+}
+.statistics__notify {
+    display: flex;
+    align-items: center;
+}
+.statistics__shield img {
+    margin-right: 33px;
+}
+.statistics__text {
+    font-size: 16px;
+    line-height: 24px;
+}
+.statistics__text span {
+    color: var(--white-text);
+    font-weight: 700;
+}
+@media (max-width: 768px) {
+    .statistics__numbers {
+        justify-content: space-between;
+    }
+    .statistics__numbers p {
+        text-align: center;
+        margin-right: 0;
+    }
+    .statistics__numbers span {
+        color: var(--green-text);
+        font-size: 24px;
+        font-size: 65px;
+        line-height: 32px;
+    }
+    .statistics__notify {
+        flex-wrap: wrap;
+    }
+    .statistics__shield {
+        margin: 30px 0 30px 0;
+        text-align: center;
+        width: 100%;
+    }
+    .statistics__shield img {
+        margin-right: 0;
+    }
+    .statistics__text {
+        padding: 0 20px;
+        text-align: center;
+    }
+}
+
+/* Section topics starts here */
+.topics {
+    padding: 134px 0 148px 0;
+    background: url("../img/Topics-bg.jpg") no-repeat;
+    background-size: cover;
+    font-family: "Gotham Pro", sans-serif;
+    font-weight: 400;
+}
+.topics__wrapper {
+    display: flex;
+    flex-direction: column;
+}
+.topics__title {
+    margin: 50px 0;
+}
+.topics__title h2 {
+    font-size: 56px;
+    line-height: 64px;
+    font-family: "Oswald", sans-serif;
+    font-weight: 700;
+}
+.topic {
+    display: flex;
+}
+.topic__img {
+    min-width: 100px;
+    padding: 0 30px 0 0;
+}
+.topic__info h4 {
+    font-size: 16px;
+    line-height: 24px;
+}
+.topic__info {
+    line-height: 16px;
+}
+@media (max-width: 768px) {
+    .topics {
+        padding: 50px 0 50px 0;
+    }
+    .topics__title {
+        margin: 0 0 20px 0;
+        order: -1;
+    }
+    .topics__title h2 {
+        font-size: 32px;
+        line-height: 40px;
+        text-align: center;
+    }
+    .topic {
+        margin-bottom: 30px;
+    }
+}
+
+/* nutrition section starts here */
+.nutrition {
+    padding: 100px 0 0 0;
+    background: url("../img/Nutrition-bg.jpg") no-repeat;
+    background-size: cover;
+    font-family: "Gotham Pro", sans-serif;
+}
+.nutrition__wrapper {
+}
+.nutrition__content {
+}
+.nutrition__content h3 {
+    font-family: "Oswald", sans-serif;
+    font-weight: 700;
+    font-size: 56px;
+    line-height: 64px;
+    text-transform: uppercase;
+    margin-bottom: 48px;
+}
+.nutrition__content p {
+    font-size: 16px;
+    line-height: 24px;
+}
+.nutrition__mobile {
+}
+
+/* options */
+.options {
+    margin-top: -50px;
+    
+}
+.container {
+}
+.options__wrapper {
+}
+.option {
+    
+}
+.row {
+}
+.options__item {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+.options__picture {
+    max-width: 350px;
+    width: 100%;
+    margin-bottom: 15px;
+}
+.options__info  span{
+    font-family: Oswald;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 24px;
+    line-height: 36px;
+    text-align: center;
+    text-transform: uppercase;
+    color: #FFFFFF;
+    padding-bottom: 15px;
+    text-align: center;
+    display: block;
+}
+
+.options__info p {
+    font-family: Oswald;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 14px;
+    line-height: 16px;
+    text-align: center;
+    text-transform: uppercase;
+    color: #626589;
+    padding-top: 5px;
+    padding-bottom: 30px;
+    text-align: center; 
+    display: block;
+}
+
+.products__title {
+margin-top: 100px;
+}
+/* end options */
+
+/* products */
+.products {
+}
+.container {
+}
+.products__title {
+    margin-bottom: 55px;
+}
+
+.product__cards {
+    
+}
+.products__item {
+    background-color: var(--light-purple);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+    max-width: 350px;
+    width: 100%;
+    height: 100%;
+    margin-right: 20px;
+}
+
+.products__item:nth-last-child() {
+    margin-right: 0;
+}
+
+.products__item-image {
+    margin-bottom: 25px;
+    margin-top: 8px;
+}
+
+.products__item-title {
+    font-family: Oswald;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 32px;
+    line-height: 40px;
+    text-align: center;
+    text-transform: uppercase;
+    color: #FFFFFF;
+    margin-bottom: 25px;
+}
+
+.products__item-price {
+    font-family: Gotham Pro;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 24px;
+    line-height: 23px;
+    text-align: center;
+    color: #626589;
+    margin-bottom: 40px;
+}
+
+.products__item-text {
+    font-family: Gotham Pro;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 16px;
+    line-height: 24px;
+    text-align: center;
+    color: #FFFFFF;
+    margin-bottom: 20px;
+}
+
+.products__purchase {
+    text-align: center;
+    align-self: center; 
+    margin-bottom: 40px;
+    max-width: 250px;
+    width: 100%;
+}
+
+/* END products */
+
+
+/* cashback */
+
+.cashback {
+    margin-top: 100px;
+}
+.container {
+}
+.cashback__wrapper {
+    box-sizing: content-box;
+}
+.cashback__picture {
+}
+
+.cashback__title {
+    font-family: Oswald;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 40px;
+    line-height: 48px;
+    text-transform: uppercase;
+    color: #25295C;
+}
+
+.cashback__text {
+    font-family: Gotham Pro;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 12px;
+    line-height: 16px;
+    color: #626589;
+    padding-bottom: 15px;
+}
+/*end cashback */
+
+/* footer */
+
+.footer {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+    background-color: var(--light-purple);
+}
+
+.footer__columns {
+}
+.wrapper {
+    display: flex;
+    justify-content: space-between;
+}
+.footer__column {
+
+}
+
+.footer__column-title {
+    margin-top: 50px;
+    margin-bottom: 40px;
+    font-family: Gotham Pro;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 16px;
+    line-height: 24px;
+    color: var(--white-text)
+    
+}
+
+.footer__column ul {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.footer__column li{
+    margin-bottom: 30px;
+color: var(--purple-text)
+}
+.footer__column li a{
+color: var(--purple-text)
+}
+
+.footer__list {
+
+}
+
+
+.footer__column-title {
+}
+
+.footer-icons {
+    display: flex;
+    flex-direction: row;
+    
+}
+
+.footer-icon  {
+    padding: 10px; 
+    text-align: center;
+    align-items: center;
+    border: 1px solid var(--basic-green);
+    border-radius: 50%;
+    margin-right: 20px;
+}
+
+.footer__column-image {
+    margin-right: 20px;
+}
+
+/* footer end */
+
