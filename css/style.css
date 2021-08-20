@@ -1,14 +1,4 @@
-/* TODO :: TEMP SOLUTION */
-.container {
-    overflow: hidden;
-    
-}
 
-* {
-    outline: 1px solid red;
-}
-
-/* !подключим щрифты */
 @font-face {
     font-family: "Oswald";
     src: url("../fonts/oswald-regular.woff2") format("woff2"),
@@ -38,7 +28,8 @@
     font-weight: 400;
     font-style: italic;
 }
-/* !переменные */
+
+
 :root {
     /* основные параметры сайта */
     /*ширина контейнера для цетровки*/
@@ -58,19 +49,19 @@
     --green-text: #92ca18;
     --plum-text: #626589;
 
-    /* цвета текста при наведении */
     --green-text-hover: #638813;
 }
 
-/* !настраиваем общте стили страницы */
 * {
     box-sizing: border-box;
 }
+
 html {
     width: 100%;
     margin: 0;
     padding: 0;
 }
+
 h1,
 h2,
 h3,
@@ -92,11 +83,14 @@ li {
 }
 
 a {
+    padding: 0;
+    margin: 0;
     text-decoration: none;
     color: var(--white-text)
 }
 
 .page {
+    position: relative;
     width: 100%;
     min-height: 100%;
     margin: 0;
@@ -105,6 +99,7 @@ a {
     font-size: 12px;
     background-color: var(--dark-purple);
     color: var(--white-text);
+
 }
 
 .button {
@@ -139,9 +134,100 @@ a {
 }
 .container {
     max-width: var(--сontainer-width);
-    /*outline: 1px solid #fff;*/
 }
 /* основные стили */
+
+/* menu */
+
+.menu {
+    position: fixed;
+    top: 0;
+    right: -300px;
+    width: 308px;
+    height: 100vh;
+    background: var(--light-purple);
+    color: var(var(--white-text));
+    font-weight: bold;
+    font-size: 16px;
+    line-height: 24px;
+    text-transform: uppercase;
+    transition: all 0.5s;
+    z-index: 1;
+}
+
+.menu-list {
+    margin-top: 37px;
+    margin-left: 40px;
+    padding: 0;
+    margin-bottom: 240px;
+}
+
+.menu-list-item {
+    font-weight: bold;
+    font-size: 16px;
+    line-height: 24px;
+    text-transform: uppercase;
+    color: #FFFFFF;
+    margin-bottom: 16px;
+}
+
+.menu.active{
+    right: 0;
+}
+
+.menu-title {
+    font-size: 14px;
+    line-height: 24px;
+    color: #626589;
+    margin-left: 32px;
+}
+
+.menu-mail-title {
+    font-size: 14px;
+    line-height: 24px;
+    margin-left: 32px;
+    color: var(--green-text-hover);
+    margin-bottom: 32px;
+}
+
+.menu-social {
+    display: flex;
+}
+.menu-social-link {
+    width: 32px;
+    height: 32px;
+    font-size: 0;
+    background-size: 30%;
+    background-position: center;
+    border-radius: 50%;
+    border: 1px solid var(--green-text);
+    background-repeat: no-repeat;
+    padding: 10px;
+    margin-right: 16px;
+    margin-bottom: 40px;
+    cursor: pointer;
+}
+.menu-social-icons1 {
+    background-image: url("../img/social/Twitter.svg");
+    
+}
+.menu-social-icons2 {
+    background-image: url("../img/social/Facebook.svg");
+}
+.menu-social-icons3 {
+    background-image: url("../img/social/Instagram.svg");
+}
+
+/* burger */
+.btn-close {
+    position: absolute;
+    top:10px;
+    right: 20px;
+}
+/* end burger */
+
+/* end menu */
+
 /* header начинаем тут */
 .header {
     padding: 48px 0 90px 0;
@@ -170,14 +256,18 @@ a {
     width: 96px;
     height: 40px;
 }
-.header__intro {
-    padding: 78px 0 48px 0;
-}
-.header__intro h2 {
+
+.header__title h2 {
+    text-align: left;
     font-size: 56px;
     font-weight: bold;
     line-break: 64px;
 }
+
+.header__intro {
+    padding: 78px 0 48px 0;
+}
+
 .header__intro p {
     margin-top: 23px;
     font-family: "Gotham Pro", sans-serif;
@@ -195,8 +285,9 @@ a {
     width: 199px;
 }
 .header__gift {
+
     width: 317px;
-}
+} 
 .header__warranty {
     display: flex;
     justify-content: flex-end;
@@ -251,12 +342,11 @@ a {
         width: 100%;
         margin: 0 auto;
     }
-
     .header__warranty {
         display: none;
     }
 }
-/* !section media начинаеться тут */
+/* !section media */
 .media {
     padding: 43px 0 64px 0;
     background: var(--light-purple);
@@ -298,11 +388,9 @@ a {
     .media__brand {
         flex-basis: 25%;
     }
-    .media__brands {
-    }
 }
 
-/* !Стартуем секцию с отзвами */
+/* feedbacks */
 
 .feedbacks {
     padding: 97px 0 0 0;
@@ -411,7 +499,9 @@ a {
         margin-bottom: 10px;
     }
 }
-/* section testimonial starts here */
+/* end feedbacks */
+
+/* section testimonial */
 .testimonial {
     font-family: "Oswald", sans-serif;
     font-weight: 700;
@@ -419,8 +509,7 @@ a {
     background-size: cover;
     background-position: bottom center;
 }
-.testimonial__wrapper {
-}
+
 .testimonial__content {
     padding-top: 85px;
     padding-bottom: 85px;
@@ -483,6 +572,7 @@ a {
     }
     .testimonial__name {
         padding-top: 20px;
+        padding-bottom: 10px;
     }
     .testimonial__status {
         padding-bottom: 20px;
@@ -495,7 +585,7 @@ a {
     }
 }
 
-/* !Погнали дальше секция Statistics */
+/*  Statistics */
 .statistics {
     padding: 61px 0;
     font-family: "Oswald";
@@ -564,7 +654,9 @@ a {
     }
 }
 
-/* Section topics starts here */
+/* end Statistics */
+
+/* Section topics */
 .topics {
     padding: 134px 0 148px 0;
     background: url("../img/Topics-bg.jpg") no-repeat;
@@ -617,16 +709,14 @@ a {
     }
 }
 
-/* nutrition section starts here */
+/* end Section topics */
+
+/* nutrition section */
 .nutrition {
     padding: 100px 0 0 0;
     background: url("../img/Nutrition-bg.jpg") no-repeat;
     background-size: cover;
     font-family: "Gotham Pro", sans-serif;
-}
-.nutrition__wrapper {
-}
-.nutrition__content {
 }
 .nutrition__content h3 {
     font-family: "Oswald", sans-serif;
@@ -641,32 +731,78 @@ a {
     line-height: 24px;
 }
 .nutrition__mobile {
+    background: url("../img/Nutrition-hand.png") ;
+    background-position: 0 0;
+    background-repeat: no-repeat;
+    background-size: contain;
+    min-height: 500px;
+    
 }
+
+@media (max-width: 768px) {
+
+    .nutrition {
+        padding-top: 0;
+    }
+
+    .nutrition__content {
+        order: 1;
+    }
+    .nutrition__content p {
+        font-family: Gotham Pro;
+        font-size: 16px;
+        line-height: 24px;
+        text-align: center;
+        padding-bottom: 40px;
+    }
+    .nutrition__content h3 {
+        margin-bottom: 20px;
+        font-family: Oswald;
+        font-style: normal;
+        font-weight: bold;
+        font-size: 32px;
+        text-align: center;
+        text-transform: uppercase;
+    }
+    .nutrition__mobile {
+        background-position: bottom left;
+        order: 0;
+    }
+    .nutrition__mobile {
+        min-height: 359px;
+    }
+    
+    .nutrition h3{
+    font-style: normal;
+    font-weight: bold;
+    font-size: 32px;
+    line-height: 40px;
+    text-align: center;
+    }
+}
+
+/* end nutrition section */
+
+
 
 /* options */
 .options {
     margin-top: -50px;
-    
-}
-.container {
-}
-.options__wrapper {
-}
-.option {
-    
-}
-.row {
 }
 .options__item {
     display: flex;
     justify-content: center;
     align-items: center;
     flex-direction: column;
+    
 }
 .options__picture {
-    max-width: 350px;
     width: 100%;
+    height: 161px;
+    object-fit: cover;
     margin-bottom: 15px;
+    overflow: hidden;
+    text-align: center;
 }
 .options__info  span{
     font-family: Oswald;
@@ -697,29 +833,41 @@ a {
     display: block;
 }
 
-.products__title {
-margin-top: 100px;
+@media (max-width: 768px) {
+    
+    .options {
+        padding-bottom: 40px;
+        margin-top: 0;
+    }
+
+    .options__wrapper span {
+        font-size: 24px;
+        line-height: 36px;
+        text-align: center;
+    }
+    .options__wrapper p {
+        font-size: 14px;
+        line-height: 16px;
+        text-align: center;
+    }
+    
 }
+
 /* end options */
 
 /* products */
-.products {
-}
-.container {
-}
 .products__title {
+    margin-top: 100px;
     margin-bottom: 55px;
 }
 
-.product__cards {
-    
-}
 .products__item {
     background-color: var(--light-purple);
     display: flex;
     flex-direction: column;
     justify-content: center;
     text-align: center;
+    align-items: center;
     max-width: 350px;
     width: 100%;
     height: 100%;
@@ -731,6 +879,7 @@ margin-top: 100px;
 }
 
 .products__item-image {
+    max-width: 100%;
     margin-bottom: 25px;
     margin-top: 8px;
 }
@@ -777,23 +926,32 @@ margin-top: 100px;
     width: 100%;
 }
 
-/* END products */
-
+@media (max-width: 768px) {
+    .products__title h2 {
+        font-size: 32px;
+        line-height: 40px;
+        text-align: center;
+        font-weight: bold;
+    }
+    .products__item-text {
+        margin-bottom:35px;
+    }
+}
+/* end products */
 
 /* cashback */
-
 .cashback {
+    text-align: center;
     margin-top: 100px;
-}
-.container {
 }
 .cashback__wrapper {
     box-sizing: content-box;
 }
 .cashback__picture {
+    padding-top: 40px;
 }
-
 .cashback__title {
+    padding-bottom: 0;
     font-family: Oswald;
     font-style: normal;
     font-weight: bold;
@@ -802,7 +960,6 @@ margin-top: 100px;
     text-transform: uppercase;
     color: #25295C;
 }
-
 .cashback__text {
     font-family: Gotham Pro;
     font-style: normal;
@@ -812,6 +969,29 @@ margin-top: 100px;
     color: #626589;
     padding-bottom: 15px;
 }
+
+@media (max-width: 768px) {
+    .cashback {
+        margin-top: 0;
+    }
+
+    .cashback__wrapper {
+        margin-top: 0px;
+    }
+    .cashback__wrapper h4{
+        font-style: normal;
+        font-weight: bold;
+        font-size: 32px;
+        line-height: 40px;
+        text-align: center;
+        margin-bottom: 30px;
+    }
+
+    .cashback__picture {
+        margin-bottom: 40px;
+    }
+}
+
 /*end cashback */
 
 /* footer */
@@ -824,14 +1004,9 @@ margin-top: 100px;
     background-color: var(--light-purple);
 }
 
-.footer__columns {
-}
 .wrapper {
     display: flex;
     justify-content: space-between;
-}
-.footer__column {
-
 }
 
 .footer__column-title {
@@ -842,8 +1017,7 @@ margin-top: 100px;
     font-weight: bold;
     font-size: 16px;
     line-height: 24px;
-    color: var(--white-text)
-    
+    color: var(--white-text);  
 }
 
 .footer__column ul {
@@ -854,24 +1028,13 @@ margin-top: 100px;
 
 .footer__column li{
     margin-bottom: 30px;
-color: var(--purple-text)
 }
 .footer__column li a{
-color: var(--purple-text)
-}
-
-.footer__list {
-
-}
-
-
-.footer__column-title {
+    color: var(--white-text)
 }
 
 .footer-icons {
     display: flex;
-    flex-direction: row;
-    
 }
 
 .footer-icon  {
@@ -885,6 +1048,21 @@ color: var(--purple-text)
 
 .footer__column-image {
     margin-right: 20px;
+}
+
+@media (max-width: 768px) {
+    .footer__column-title {
+        text-align: center;
+    }
+    .footer__column-subtitle {
+        text-align: center;
+    }
+    .footer-icons {
+        justify-content: center;
+    }
+    .footer__column-image {
+        margin-right: 30px;
+    }
 }
 
 /* footer end */
